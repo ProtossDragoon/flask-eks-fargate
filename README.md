@@ -1,1 +1,1 @@
-[원저자 소스코드](https://github.com/noahgift/greedy_coin)
+[원저자 소스코드1](https://github.com/noahgift/greedy_coin), [원저자 소스코드2](https://github.com/noahgift/eks-fargate-tutorial)

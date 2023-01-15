@@ -8,6 +8,8 @@ class Algorithm():
     MINIMAL_FACE_VALUE = 10
 
     def __init__(self, money, coin_types, verbose=False):
+        assert isinstance(money, int), '금액은 정수여야 합니다.'
+        assert isinstance(coin_types, set), '동전의 종류는 집합(set)이어야 합니다.'
         self.money = money
         self.verbose = verbose
         self.coin_types = coin_types
@@ -25,9 +27,12 @@ class Algorithm():
             print(f'{max_face_value}원 짜리 동전 {n}개')
         return [n] + self._recursive_change(remainder)
 
-    def calculate(self):
+    def calculate(self, ret_dict=False):
         result = self._recursive_change(self.money)
         self.coin_types = self.cache.copy()
+        if ret_dict:
+            coin_types = sorted(list(self.coin_types), reverse=True)
+            result = dict(zip(coin_types, result))
         return result
 
 

@@ -5,7 +5,7 @@ install:
 	python3 -m pip install -r requirements.txt
 
 lint:
-	pylint app.py
+	python3 -m pylint app.py
 
 test:
 	python3 -m unittest discover -s . -p "*_test.py" -v

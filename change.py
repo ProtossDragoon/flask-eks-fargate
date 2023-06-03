@@ -8,13 +8,13 @@ class Algorithm():
     MINIMAL_FACE_VALUE = 10
 
     def __init__(self, money, coin_types, verbose=False):
-        assert isinstance(money, int), '금액은 정수여야 합니다.'
-        assert isinstance(coin_types, set), '동전의 종류는 집합(set)이어야 합니다.'
+        assert isinstance(money, int), "금액은 정수여야 합니다."
+        assert isinstance(coin_types, set), "동전의 종류는 집합(set)이어야 합니다."
         self.money = money
         self.verbose = verbose
         self.coin_types = coin_types
         assert min(self.coin_types) == Algorithm.MINIMAL_FACE_VALUE, \
-            f'최소 동전단위는 {Algorithm.MINIMAL_FACE_VALUE}원입니다.'
+            f"최소 동전단위는 {Algorithm.MINIMAL_FACE_VALUE}원입니다."
         self.cache = self.coin_types.copy()
 
     def _recursive_change(self, remainder):
@@ -24,7 +24,7 @@ class Algorithm():
         self.coin_types.remove(max_face_value)
         n, remainder = divmod(remainder, max_face_value)
         if self.verbose:
-            print(f'{max_face_value}원 짜리 동전 {n}개')
+            print(f"{max_face_value}원 짜리 동전 {n}개")
         return [n] + self._recursive_change(remainder)
 
     def calculate(self, ret_dict=False):

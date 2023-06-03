@@ -41,7 +41,7 @@ class TestChange(unittest.TestCase):
     def test_not_ideal(self):
         alg = change.Algorithm(120, coin_types={10, 60, 100})
         c100, c60, c10 = alg.calculate()
-        with self.subTest('우리의 알고리즘'):
+        with self.subTest("우리의 알고리즘"):
             self.assertEqual(c100, 1)
             self.assertEqual(c60, 0)
             self.assertEqual(c10, 2)
